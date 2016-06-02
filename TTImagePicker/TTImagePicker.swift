@@ -12,59 +12,59 @@ class TTImagePicker: NSObject {
 //    let watchStr = "查看大图"
     let string1 = "拍照"
     let string2 = "从相机中选择"
-    var viewController:UIViewController?
     var finishAction:((UIImage?)->Void)?
-    var imageWatcherAction:(()->Void)?
-    var allowsEditing : Bool = false
-    
     private static var imagePicker: TTImagePicker?
-    class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,imageWatcherAction:(_: ()->Void),finishAction:(_:UIImage?->Void)) {
-        var picker = TTImagePicker.imagePicker
-        if picker == nil {
-            picker = TTImagePicker()
+    class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,finishAction:(_:UIImage?->Void)) {
+        if TTImagePicker.imagePicker == nil {
+            TTImagePicker.imagePicker = TTImagePicker()
         }
-        picker!.showImagePickerFromViewController(viewController, allowsEdited: allowsEditing, imageWAction: imageWatcherAction, callBackAction: finishAction)
+        TTImagePicker.imagePicker!.showImagePickerFromViewController(viewController, allowsEdited: allowsEditing, callBackAction: finishAction)
     }
 }
 extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    private func showImagePickerFromViewController(viewC:UIViewController,allowsEdited:Bool,imageWAction:(_: ()->Void),callBackAction:(_:UIImage?->Void)){
-        viewController = viewC
+    private func showImagePickerFromViewController(viewC:UIViewController,allowsEdited:Bool,callBackAction:(_:UIImage?->Void)){
         finishAction = callBackAction;
-        allowsEditing = allowsEdited
-        imageWatcherAction = imageWAction
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            sheet.addAction(UIAlertAction(title: string1, style: .Default, handler: { (action) in
-                print(self.string1)
+            sheet.addAction(UIAlertAction(title: string1, style: .Default, handler: { (_) in
                 let pickerVc = UIImagePickerController()
-                pickerVc.delegate = self
+                pickerVc.delegate = TTImagePicker.imagePicker
                 pickerVc.sourceType = .Camera
                 pickerVc.allowsEditing = allowsEdited
                 viewC.presentViewController(pickerVc, animated: true, completion: nil)
             }))
         }
-        sheet.addAction(UIAlertAction(title: string2, style: .Default, handler: { (action) in
+        sheet.addAction(UIAlertAction(title: string2, style: .Default, handler: { (_) in
             let pickerVc = UIImagePickerController()
-            pickerVc.delegate = self
+            pickerVc.delegate = TTImagePicker.imagePicker
             pickerVc.allowsEditing = allowsEdited
             viewC.presentViewController(pickerVc, animated: true, completion: nil)
         }))
-        sheet.addAction(UIAlertAction(title: "取消", style:.Cancel, handler: { (action) in
-            print("取消")
+        sheet.addAction(UIAlertAction(title: "取消", style:.Cancel, handler: { (_) in
+            TTImagePicker.imagePicker = nil
         }))
         viewC.presentViewController(sheet, animated: true, completion: nil)
-//         UIAlertController(title: nil, message: "取消", preferredStyle: .ActionSheet)
-//        var sheet:UIActionSheet?
-//        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-//            sheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: string1, string2)
-//        }else{
-//            sheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles:string2)
-//        }
-//        sheet?.showInView(UIApplication.sharedApplication().keyWindow!)
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        if finishAction != nil {
+            finishAction!(image)
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        TTImagePicker.imagePicker = nil
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
+        var icon = info[UIImagePickerControllerEditedImage] as? UIImage
+        if (icon == nil) {
+            icon = info[UIImagePickerControllerOriginalImage] as? UIImage
+        }
+        if finishAction != nil {
+            finishAction!(icon)
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        TTImagePicker.imagePicker = nil
     }
-    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        TTImagePicker.imagePicker = nil
+    }
 }

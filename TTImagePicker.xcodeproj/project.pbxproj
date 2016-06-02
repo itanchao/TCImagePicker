@@ -26,6 +26,8 @@
 		217A396A1D002D2600E4CCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		217A39701D002D8B00E4CCD5 /* FriendsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriendsBackground.png; sourceTree = "<group>"; };
 		217A39721D002FD500E4CCD5 /* TTImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePicker.swift; sourceTree = "<group>"; };
+		217A39741D00512200E4CCD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		217A39751D00512200E4CCD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				217A39631D002D2600E4CCD5 /* Base */,
+				217A39741D00512200E4CCD5 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				217A39681D002D2600E4CCD5 /* Base */,
+				217A39751D00512200E4CCD5 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -296,6 +300,7 @@
 				217A396F1D002D2600E4CCD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
