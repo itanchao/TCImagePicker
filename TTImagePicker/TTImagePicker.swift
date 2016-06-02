@@ -11,7 +11,13 @@ import UIKit
 class TTImagePicker: NSObject {
     private var finishAction:((UIImage?)->Void)?
     private static var imagePicker: TTImagePicker?
-    class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,iconView:UIImageView?,finishAction:(_:UIImage?->Void)) {
+    ///  弹出ImagePicker
+    ///
+    ///  - parameter viewController: 当前控制器
+    ///  - parameter allowsEditing:  是否需要编辑图片
+    ///  - parameter iconView:       当前图片所在View（默认为nil则不展示图片查看功能）
+    ///  - parameter finishAction:   选择完图片回调
+    class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,iconView:UIImageView? = nil,finishAction:(_:UIImage?->Void)) {
         if TTImagePicker.imagePicker == nil {
             TTImagePicker.imagePicker = TTImagePicker()
         }
@@ -25,7 +31,7 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         if iconView != nil {
 //            if iconView!.image != nil  {
                 sheet.addAction(UIAlertAction(title: "查看大图", style: .Default, handler: { (_) in
-                    ImageWatchView.showImageWithIcon(iconView!.image)
+                    ImageWatchView.showImageWithIcon(iconView!)
                 }))
 //            }
         }
@@ -73,11 +79,12 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
             }
         }
     }
-    static func showImageWithIcon(icon:UIImage?) -> ImageWatchView {
-        
+    var backImageView : UIImageView?
+    static func showImageWithIcon(iconView:UIImageView) -> ImageWatchView {
         let browseImagesView = ImageWatchView(frame: UIScreen.mainScreen().bounds)
-        browseImagesView.icon = icon;
+        browseImagesView.backImageView = iconView
         browseImagesView.initSubviews()
+        browseImagesView.icon = iconView.image
         UIApplication.sharedApplication().keyWindow?.addSubview(browseImagesView)
         return browseImagesView
     }
@@ -86,37 +93,38 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         self.getImageView().image = image
         let scaleX = scrollView.bounds.width/image.size.width
         let scaleY = scrollView.bounds.height/image.size.height
-        if scaleX > scaleY {
-            let imgViewWidth = image.size.width * scaleY
-            getImageView().frame = CGRect(x: 0.5*(scrollView.bounds.width-imgViewWidth), y: 0, width: imgViewWidth, height: scrollView.bounds.height)
-        }else{
-            let imgViewHeight = image.size.height*scaleX
-            getImageView().frame = CGRect(x: 0, y: 0.5*(scrollView.bounds.height-imgViewHeight), width: scrollView.bounds.width, height: imgViewHeight)
-        }
-        getImageView().transform = CGAffineTransformMakeScale(0.7, 0.7)
-        UIView.animateWithDuration(0.2) {
-            self.getImageView().transform = CGAffineTransformIdentity
+        getImageView().frame = backImageView!.frame
+        self.alpha = 0
+        UIView.animateWithDuration(0.4) {
+            self.alpha = 0.8
+            if scaleX > scaleY {
+                let imgViewWidth = image.size.width * scaleY
+                self.getImageView().frame = CGRect(x: 0.5*(self.scrollView.bounds.width-imgViewWidth), y: 0, width: imgViewWidth, height: self.scrollView.bounds.height)
+            }else{
+                let imgViewHeight = image.size.height*scaleX
+                self.getImageView().frame = CGRect(x: 0, y: 0.5*(self.scrollView.bounds.height-imgViewHeight), width: self.scrollView.bounds.width, height: imgViewHeight)
+            }
         }
     }
     /// 移除当前浏览器
     private func removeView() {
-        UIView.animateWithDuration(0.2, animations: {
-            self.getImageView().transform = CGAffineTransformMakeScale(0.7, 0.7)
-            self.alpha = 0.5
+        UIView.animateWithDuration(0.4, animations: {
+            self.getImageView().frame = self.backImageView!.frame
+            self.alpha = 0
         }) { (finished) in
             self.removeFromSuperview()
             self.scrollView.removeFromSuperview()
         }
     }
     private func initSubviews() {
-        backgroundColor = UIColor.clearColor()
-        self.alpha = 0
+        backgroundColor = UIColor.blackColor()
+        self.alpha = 0.8
         addSubview(scrollView)
         scrollView.addSubview(getScaleView())
         getScaleView().addSubview(getImageView())
-        UIView .animateWithDuration(0.2) {
-            self.alpha = 1
-        }
+//        UIView.animateWithDuration(0.4) {
+//            self.alpha = 0.8
+//        }
     }
     @objc private func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return scaleView
