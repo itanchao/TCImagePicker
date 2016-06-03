@@ -32,11 +32,11 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         finishAction = callBackAction
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         if iconView != nil {
-//            if iconView!.image != nil  {
+            if iconView!.image != nil  {
                 sheet.addAction(UIAlertAction(title: "查看大图", style: .Default, handler: { (_) in
                     ImageWatchView.showImageWithIcon(iconView!)
                 }))
-//            }
+            }
         }
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             sheet.addAction(UIAlertAction(title: "拍照", style: .Default, handler: { (_) in
