@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: imageView, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: -200))
         view.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1, constant: 80))
         view.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: 80))
-        view.addOnClickListener(self, action: #selector(ViewController.imageViewClick(_:)))
+        imageView.addOnClickListener(self, action: #selector(ViewController.imageViewClick(_:)))
     }
     func imageViewClick(imageView:UIImageView?) {
         TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) { (icon) in
