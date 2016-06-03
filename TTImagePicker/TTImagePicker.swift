@@ -9,6 +9,9 @@
 import UIKit
 
 class TTImagePicker: NSObject {
+    ///  回调闭包
+    ///
+    ///  - returns: 回调闭包
     private var finishAction:((UIImage?)->Void)?
     private static var imagePicker: TTImagePicker?
     ///  弹出ImagePicker

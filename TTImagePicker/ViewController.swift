@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     lazy private  var imageView: UIImageView = {
         let object = UIImageView(image: UIImage(named: "FriendsBackground.png"))
+//        let object = UIImageView()
         return object
     }()
 
