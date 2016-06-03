@@ -94,9 +94,9 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         let scaleX = scrollView.bounds.width/image.size.width
         let scaleY = scrollView.bounds.height/image.size.height
         getImageView().frame = backImageView!.frame
-        self.alpha = 0
+        self.backgroundColor =  UIColor(white: 0.8, alpha: 0)
         UIView.animateWithDuration(0.4) {
-            self.alpha = 0.8
+            self.backgroundColor =  UIColor(white: 0.8, alpha: 0.8)
             if scaleX > scaleY {
                 let imgViewWidth = image.size.width * scaleY
                 self.getImageView().frame = CGRect(x: 0.5*(self.scrollView.bounds.width-imgViewWidth), y: 0, width: imgViewWidth, height: self.scrollView.bounds.height)
@@ -110,15 +110,13 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
     private func removeView() {
         UIView.animateWithDuration(0.4, animations: {
             self.getImageView().frame = self.backImageView!.frame
-            self.alpha = 0
+                    self.backgroundColor =  UIColor(white: 0.8, alpha: 0)
         }) { (finished) in
             self.removeFromSuperview()
             self.scrollView.removeFromSuperview()
         }
     }
     private func initSubviews() {
-        backgroundColor = UIColor.blackColor()
-        self.alpha = 0.8
         addSubview(scrollView)
         scrollView.addSubview(getScaleView())
         getScaleView().addSubview(getImageView())
