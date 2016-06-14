@@ -34,7 +34,7 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         if iconView != nil {
             if iconView!.image != nil  {
                 sheet.addAction(UIAlertAction(title: "查看大图", style: .Default, handler: { (_) in
-                    ImageWatchView.showImageWithIcon(iconView!)
+                    ImageWatchView.showImageWithIcon(iconView!, fromVc: viewC)
                 }))
             }
         }
@@ -83,12 +83,15 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         }
     }
     var backImageView : UIImageView?
-    static func showImageWithIcon(iconView:UIImageView) -> ImageWatchView {
+    var currentVC : UIViewController?
+    
+    static func showImageWithIcon(iconView:UIImageView,fromVc:UIViewController) -> ImageWatchView {
         let browseImagesView = ImageWatchView(frame: UIScreen.mainScreen().bounds)
         browseImagesView.backImageView = iconView
         browseImagesView.initSubviews()
         browseImagesView.icon = iconView.image
-        UIApplication.sharedApplication().keyWindow?.addSubview(browseImagesView)
+        browseImagesView.currentVC = fromVc
+        fromVc.view.addSubview(browseImagesView)
         return browseImagesView
     }
     /// 计算frame
@@ -170,8 +173,30 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
             object.clipsToBounds = true
             object.contentMode = .ScaleAspectFill
             imageView = object
+//            imageView!.addOnClickListener(self, action: #selector(ImageWatchView.showSaveButton))
+            let longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ImageWatchView.showSaveButton))
+            longTapGestureRecognizer.minimumPressDuration = 0.5
+            imageView!.userInteractionEnabled = true
+            imageView!.addGestureRecognizer(longTapGestureRecognizer)
+            
         }
         return imageView!
+    }
+    var saveButtonShowed = false
+    
+    @objc  func showSaveButton() {
+        if getImageView().image == nil { return }
+        if saveButtonShowed { return }
+        saveButtonShowed = true
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        sheet.addAction(UIAlertAction(title: "保存", style: .Default, handler: {[unowned self] (_) in
+            self.saveButtonShowed = false
+            UIImageWriteToSavedPhotosAlbum(self.icon!, nil, nil, nil)
+        }))
+        sheet.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: { [unowned self] (_) in
+            self.saveButtonShowed = false
+        }))
+        currentVC!.presentViewController(sheet, animated: true, completion: nil)
     }
     lazy private  var scrollView: UIScrollView = {
         let object = UIScrollView(frame: CGRect(origin: CGPointZero, size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)))
