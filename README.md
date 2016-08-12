@@ -5,7 +5,7 @@
 
 一行代码实现拍照，选择，放大功能
 
-```js
+```swift
     func imageViewClick(imageView:UIImageView?) {
         TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) { (icon) in
             self.imageView.image = icon!
