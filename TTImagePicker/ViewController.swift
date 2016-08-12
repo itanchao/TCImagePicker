@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         imageView.addOnClickListener(self, action: #selector(ViewController.imageViewClick(_:)))
     }
     func imageViewClick(imageView:UIImageView?) {
-        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) { (icon) in
+        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) { [unowned self] (icon) in
             self.imageView.image = icon!
         }
 //        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true) { (icon) in

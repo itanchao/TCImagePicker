@@ -7,7 +7,7 @@
 
 ```swift
     func imageViewClick(imageView:UIImageView?) {
-        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) { (icon) in
+        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) {[unowned self] (icon) in
             self.imageView.image = icon!
         }
     }
