@@ -2,8 +2,8 @@
 //  TTImagePicker.swift
 //  TTImagePicker
 //
-//  Created by wzh on 16/6/2.
-//  Copyright © 2016年 谈超. All rights reserved.
+//  Created by tanchao的iMac on 2016/10/20.
+//  Copyright © 2016年 tanchao. All rights reserved.
 //
 
 import UIKit
@@ -12,53 +12,55 @@ class TTImagePicker: NSObject {
     ///  回调闭包
     ///
     ///  - returns: 回调闭包
-    private var finishAction:((UIImage?)->Void)?
-    private static  var picker: TTImagePicker?
+    var finishAction:((UIImage?)->Void)?
+    
+    static  var picker: TTImagePicker?
     ///  弹出ImagePicker
     ///
     ///  - parameter viewController: 当前控制器
     ///  - parameter allowsEditing:  是否需要编辑图片
     ///  - parameter iconView:       当前图片所在View（默认为nil则不展示图片查看功能）
     ///  - parameter finishAction:   选择完图片回调
-    class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,iconView:UIImageView? = nil,finishAction:(_:UIImage?->Void)) {
+    open class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,iconView:UIImageView? = nil,finishAction:(_:(UIImage?)->Void)) {
         if picker == nil {
             picker = TTImagePicker()
         }
-        picker!.showImagePickerFromViewController(viewController, allowsEdited: allowsEditing,iconView: iconView ,callBackAction: finishAction)
+        picker?.showImagePickerFromViewController(viewC: viewController, allowsEdited: allowsEditing, iconView: iconView, callBackAction: finishAction)
     }
 }
 extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    private func showImagePickerFromViewController(viewC:UIViewController,allowsEdited:Bool,iconView:UIImageView?,callBackAction:(_:UIImage?->Void)){
+     func showImagePickerFromViewController(viewC:UIViewController,allowsEdited:Bool,iconView:UIImageView?,callBackAction:(_:(UIImage?)->Void)){
         finishAction = callBackAction
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if iconView != nil {
             if iconView!.image != nil  {
-                sheet.addAction(UIAlertAction(title: "查看大图", style: .Default, handler: { (_) in
-                    ImageWatchView.showImageWithIcon(iconView!, fromVc: viewC)
+                sheet.addAction(UIAlertAction(title: "查看大图", style: .default, handler: { (_) in
+                    ImageWatchView.showImageWithIcon(iconView: iconView!, fromVc: viewC)
                 }))
             }
         }
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            sheet.addAction(UIAlertAction(title: "拍照", style: .Default, handler: { (_) in
-                let pickerVc = UIImagePickerController()
-                pickerVc.delegate = TTImagePicker.picker
-                pickerVc.sourceType = .Camera
-                pickerVc.allowsEditing = allowsEdited
-                viewC.presentViewController(pickerVc, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            sheet.addAction(UIAlertAction(title: "拍照", style: .default, handler: { (_) in
+                let imagePickerVc = UIImagePickerController()
+                imagePickerVc.delegate = TTImagePicker.picker
+                imagePickerVc.sourceType = .camera
+                imagePickerVc.allowsEditing = allowsEdited
+                viewC.present(imagePickerVc, animated: true, completion: nil)
             }))
         }
-        sheet.addAction(UIAlertAction(title: "从相机中选择", style: .Default, handler: { (_) in
-            let pickerVc = UIImagePickerController()
-            pickerVc.delegate = TTImagePicker.picker
-            pickerVc.allowsEditing = allowsEdited
-            viewC.presentViewController(pickerVc, animated: true, completion: nil)
+        
+        sheet.addAction(UIAlertAction(title: "从相机中选择", style: .default, handler: { (_) in
+            let imagePickerVc = UIImagePickerController()
+            imagePickerVc.delegate = TTImagePicker.picker
+            imagePickerVc.allowsEditing = allowsEdited
+            viewC.present(imagePickerVc, animated: true, completion: nil)
         }))
-        sheet.addAction(UIAlertAction(title: "取消", style:.Cancel, handler: { (_) in
+        sheet.addAction(UIAlertAction(title: "取消", style:.cancel, handler: { (_) in
             TTImagePicker.picker = nil
         }))
-        viewC.presentViewController(sheet, animated: true, completion: nil)
+        viewC.present(sheet, animated: true, completion: nil)
     }
-    @objc internal func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var icon = info[UIImagePickerControllerEditedImage] as? UIImage
         if (icon == nil) {
             icon = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -66,33 +68,33 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         if finishAction != nil {
             finishAction!(icon)
         }
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         TTImagePicker.picker = nil
     }
-    @objc internal func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
         TTImagePicker.picker = nil
+        
     }
 }
 private class ImageWatchView: UIView,UIScrollViewDelegate {
     var icon : UIImage?{
         didSet{
             if icon != nil {
-                self.calculateImageFrameWithImage(icon!)
+                calculateImageFrameWithImage(image: icon!)
             }
         }
     }
     var backImageView : UIImageView?
     var currentVC : UIViewController?
     
-    static func showImageWithIcon(iconView:UIImageView,fromVc:UIViewController) -> ImageWatchView {
-        let browseImagesView = ImageWatchView(frame: UIScreen.mainScreen().bounds)
+    class func showImageWithIcon(iconView:UIImageView,fromVc:UIViewController) {
+        let browseImagesView = ImageWatchView(frame: UIScreen.main.bounds)
         browseImagesView.backImageView = iconView
         browseImagesView.initSubviews()
         browseImagesView.icon = iconView.image
         browseImagesView.currentVC = fromVc
         fromVc.view.addSubview(browseImagesView)
-        return browseImagesView
     }
     /// 计算frame
     private func calculateImageFrameWithImage(image:UIImage)  {
@@ -101,7 +103,7 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         let scaleY = scrollView.bounds.height/image.size.height
         getImageView().frame = backImageView!.frame
         self.backgroundColor =  UIColor(white: 0.8, alpha: 0)
-        UIView.animateWithDuration(0.4) {
+         UIView.animate(withDuration: 0.4) {
             self.backgroundColor =  UIColor(white: 0.8, alpha: 0.8)
             if scaleX > scaleY {
                 let imgViewWidth = image.size.width * scaleY
@@ -114,12 +116,13 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
     }
     /// 移除当前浏览器
     private func removeView() {
-        UIView.animateWithDuration(0.4, animations: {
+         UIView.animate(withDuration: 0.4, animations: {
             self.getImageView().frame = self.backImageView!.frame
                     self.backgroundColor =  UIColor(white: 0.8, alpha: 0)
         }) { (finished) in
             self.removeFromSuperview()
             self.scrollView.removeFromSuperview()
+            TTImagePicker.picker = nil;
         }
     }
     private func initSubviews() {
@@ -130,7 +133,7 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
 //            self.alpha = 0.8
 //        }
     }
-    @objc private func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+     @nonobjc func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return scaleView
     }
     private var scaleView : UIView?
@@ -143,8 +146,8 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
             let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ImageWatchView.handleTapGesture))
             doubleTapGestureRecognizer.numberOfTapsRequired = 2
             object.addGestureRecognizer(doubleTapGestureRecognizer)
-            singleTapGestureRecognizer.requireGestureRecognizerToFail(doubleTapGestureRecognizer)
-            object.backgroundColor = UIColor.clearColor()
+            singleTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+            object.backgroundColor = UIColor.clear
             scaleView = object
         }
         return scaleView!
@@ -154,15 +157,15 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
             if self.scrollView.zoomScale == self.scrollView.minimumZoomScale {
                 removeView()
             }else{
-                UIView.animateWithDuration(0.2, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     self.scrollView.zoomScale = self.scrollView.minimumZoomScale
                 })
             }
             return
         }
         if sender.numberOfTapsRequired == 2 {
-            UIView.animateWithDuration(0.2, animations: {
-                if self.scrollView.zoomScale <= 1.7{  self.scrollView.zoomScale = self.scrollView.maximumZoomScale}else{self.scrollView.zoomScale = self.scrollView.minimumZoomScale}
+            UIView.animate(withDuration: 0.2, animations: { 
+                  if self.scrollView.zoomScale <= 1.7{  self.scrollView.zoomScale = self.scrollView.maximumZoomScale}else{self.scrollView.zoomScale = self.scrollView.minimumZoomScale}
             })
         }
     }
@@ -171,12 +174,12 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         if imageView == nil {
             let object = UIImageView()
             object.clipsToBounds = true
-            object.contentMode = .ScaleAspectFill
+            object.contentMode = .scaleAspectFill
             imageView = object
 //            imageView!.addOnClickListener(self, action: #selector(ImageWatchView.showSaveButton))
             let longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ImageWatchView.showSaveButton))
             longTapGestureRecognizer.minimumPressDuration = 0.5
-            imageView!.userInteractionEnabled = true
+            imageView!.isUserInteractionEnabled = true
             imageView!.addGestureRecognizer(longTapGestureRecognizer)
             
         }
@@ -188,18 +191,18 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         if getImageView().image == nil { return }
         if saveButtonShowed { return }
         saveButtonShowed = true
-        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        sheet.addAction(UIAlertAction(title: "保存", style: .Default, handler: {[unowned self] (_) in
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "保存", style: .default, handler: {[unowned self] (_) in
             self.saveButtonShowed = false
             UIImageWriteToSavedPhotosAlbum(self.icon!, nil, nil, nil)
         }))
-        sheet.addAction(UIAlertAction(title: "取消", style: .Cancel, handler: { [unowned self] (_) in
+        sheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { [unowned self] (_) in
             self.saveButtonShowed = false
         }))
-        currentVC!.presentViewController(sheet, animated: true, completion: nil)
+        currentVC!.present(sheet, animated: true, completion: nil)
     }
     lazy private  var scrollView: UIScrollView = {
-        let object = UIScrollView(frame: CGRect(origin: CGPointZero, size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)))
+        let object = UIScrollView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)))
         object.showsVerticalScrollIndicator = false
         object.showsHorizontalScrollIndicator = false
         object.bouncesZoom = true

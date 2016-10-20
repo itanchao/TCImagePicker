@@ -7,31 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		217A395F1D002D2600E4CCD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A395E1D002D2600E4CCD5 /* AppDelegate.swift */; };
-		217A39611D002D2600E4CCD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A39601D002D2600E4CCD5 /* ViewController.swift */; };
-		217A39641D002D2600E4CCD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217A39621D002D2600E4CCD5 /* Main.storyboard */; };
-		217A39661D002D2600E4CCD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217A39651D002D2600E4CCD5 /* Assets.xcassets */; };
-		217A39691D002D2600E4CCD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217A39671D002D2600E4CCD5 /* LaunchScreen.storyboard */; };
-		217A39711D002D8B00E4CCD5 /* FriendsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 217A39701D002D8B00E4CCD5 /* FriendsBackground.png */; };
-		217A39731D002FD500E4CCD5 /* TTImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A39721D002FD500E4CCD5 /* TTImagePicker.swift */; };
+		D8F838191DB87522006D4358 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F838181DB87522006D4358 /* AppDelegate.swift */; };
+		D8F8381B1DB87522006D4358 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8381A1DB87522006D4358 /* ViewController.swift */; };
+		D8F8381E1DB87522006D4358 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F8381C1DB87522006D4358 /* Main.storyboard */; };
+		D8F838201DB87522006D4358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F8381F1DB87522006D4358 /* Assets.xcassets */; };
+		D8F838231DB87522006D4358 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F838211DB87522006D4358 /* LaunchScreen.storyboard */; };
+		D8F8382B1DB876D9006D4358 /* TTImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8382A1DB876D9006D4358 /* TTImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		217A395B1D002D2600E4CCD5 /* TTImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		217A395E1D002D2600E4CCD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		217A39601D002D2600E4CCD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		217A39631D002D2600E4CCD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		217A39651D002D2600E4CCD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		217A39681D002D2600E4CCD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		217A396A1D002D2600E4CCD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		217A39701D002D8B00E4CCD5 /* FriendsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriendsBackground.png; sourceTree = "<group>"; };
-		217A39721D002FD500E4CCD5 /* TTImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePicker.swift; sourceTree = "<group>"; };
-		217A39741D00512200E4CCD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		217A39751D00512200E4CCD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D8F838151DB87522006D4358 /* TTImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F838181DB87522006D4358 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8F8381A1DB87522006D4358 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8F8381D1DB87522006D4358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8F8381F1DB87522006D4358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8F838221DB87522006D4358 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8F838241DB87522006D4358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F8382A1DB876D9006D4358 /* TTImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		217A39581D002D2600E4CCD5 /* Frameworks */ = {
+		D8F838121DB87522006D4358 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,33 +37,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		217A39521D002D2600E4CCD5 = {
+		D8F8380C1DB87522006D4358 = {
 			isa = PBXGroup;
 			children = (
-				217A395D1D002D2600E4CCD5 /* TTImagePicker */,
-				217A395C1D002D2600E4CCD5 /* Products */,
+				D8F838171DB87522006D4358 /* TTImagePicker */,
+				D8F838161DB87522006D4358 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		217A395C1D002D2600E4CCD5 /* Products */ = {
+		D8F838161DB87522006D4358 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				217A395B1D002D2600E4CCD5 /* TTImagePicker.app */,
+				D8F838151DB87522006D4358 /* TTImagePicker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		217A395D1D002D2600E4CCD5 /* TTImagePicker */ = {
+		D8F838171DB87522006D4358 /* TTImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				217A39701D002D8B00E4CCD5 /* FriendsBackground.png */,
-				217A395E1D002D2600E4CCD5 /* AppDelegate.swift */,
-				217A39601D002D2600E4CCD5 /* ViewController.swift */,
-				217A39621D002D2600E4CCD5 /* Main.storyboard */,
-				217A39651D002D2600E4CCD5 /* Assets.xcassets */,
-				217A39671D002D2600E4CCD5 /* LaunchScreen.storyboard */,
-				217A396A1D002D2600E4CCD5 /* Info.plist */,
-				217A39721D002FD500E4CCD5 /* TTImagePicker.swift */,
+				D8F8382A1DB876D9006D4358 /* TTImagePicker.swift */,
+				D8F838181DB87522006D4358 /* AppDelegate.swift */,
+				D8F8381A1DB87522006D4358 /* ViewController.swift */,
+				D8F8381C1DB87522006D4358 /* Main.storyboard */,
+				D8F8381F1DB87522006D4358 /* Assets.xcassets */,
+				D8F838211DB87522006D4358 /* LaunchScreen.storyboard */,
+				D8F838241DB87522006D4358 /* Info.plist */,
 			);
 			path = TTImagePicker;
 			sourceTree = "<group>";
@@ -75,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		217A395A1D002D2600E4CCD5 /* TTImagePicker */ = {
+		D8F838141DB87522006D4358 /* TTImagePicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 217A396D1D002D2600E4CCD5 /* Build configuration list for PBXNativeTarget "TTImagePicker" */;
+			buildConfigurationList = D8F838271DB87522006D4358 /* Build configuration list for PBXNativeTarget "TTImagePicker" */;
 			buildPhases = (
-				217A39571D002D2600E4CCD5 /* Sources */,
-				217A39581D002D2600E4CCD5 /* Frameworks */,
-				217A39591D002D2600E4CCD5 /* Resources */,
+				D8F838111DB87522006D4358 /* Sources */,
+				D8F838121DB87522006D4358 /* Frameworks */,
+				D8F838131DB87522006D4358 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -89,25 +84,27 @@
 			);
 			name = TTImagePicker;
 			productName = TTImagePicker;
-			productReference = 217A395B1D002D2600E4CCD5 /* TTImagePicker.app */;
+			productReference = D8F838151DB87522006D4358 /* TTImagePicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		217A39531D002D2600E4CCD5 /* Project object */ = {
+		D8F8380D1DB87522006D4358 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "谈超";
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = tanchao;
 				TargetAttributes = {
-					217A395A1D002D2600E4CCD5 = {
-						CreatedOnToolsVersion = 7.3;
+					D8F838141DB87522006D4358 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QUQSN63RJB;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 217A39561D002D2600E4CCD5 /* Build configuration list for PBXProject "TTImagePicker" */;
+			buildConfigurationList = D8F838101DB87522006D4358 /* Build configuration list for PBXProject "TTImagePicker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,58 +112,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 217A39521D002D2600E4CCD5;
-			productRefGroup = 217A395C1D002D2600E4CCD5 /* Products */;
+			mainGroup = D8F8380C1DB87522006D4358;
+			productRefGroup = D8F838161DB87522006D4358 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				217A395A1D002D2600E4CCD5 /* TTImagePicker */,
+				D8F838141DB87522006D4358 /* TTImagePicker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		217A39591D002D2600E4CCD5 /* Resources */ = {
+		D8F838131DB87522006D4358 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217A39691D002D2600E4CCD5 /* LaunchScreen.storyboard in Resources */,
-				217A39661D002D2600E4CCD5 /* Assets.xcassets in Resources */,
-				217A39641D002D2600E4CCD5 /* Main.storyboard in Resources */,
-				217A39711D002D8B00E4CCD5 /* FriendsBackground.png in Resources */,
+				D8F838231DB87522006D4358 /* LaunchScreen.storyboard in Resources */,
+				D8F838201DB87522006D4358 /* Assets.xcassets in Resources */,
+				D8F8381E1DB87522006D4358 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		217A39571D002D2600E4CCD5 /* Sources */ = {
+		D8F838111DB87522006D4358 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217A39731D002FD500E4CCD5 /* TTImagePicker.swift in Sources */,
-				217A39611D002D2600E4CCD5 /* ViewController.swift in Sources */,
-				217A395F1D002D2600E4CCD5 /* AppDelegate.swift in Sources */,
+				D8F8382B1DB876D9006D4358 /* TTImagePicker.swift in Sources */,
+				D8F8381B1DB87522006D4358 /* ViewController.swift in Sources */,
+				D8F838191DB87522006D4358 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		217A39621D002D2600E4CCD5 /* Main.storyboard */ = {
+		D8F8381C1DB87522006D4358 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				217A39631D002D2600E4CCD5 /* Base */,
-				217A39741D00512200E4CCD5 /* zh-Hans */,
+				D8F8381D1DB87522006D4358 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		217A39671D002D2600E4CCD5 /* LaunchScreen.storyboard */ = {
+		D8F838211DB87522006D4358 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				217A39681D002D2600E4CCD5 /* Base */,
-				217A39751D00512200E4CCD5 /* zh-Hans */,
+				D8F838221DB87522006D4358 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -174,7 +168,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		217A396B1D002D2600E4CCD5 /* Debug */ = {
+		D8F838251DB87522006D4358 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -186,10 +180,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -211,16 +208,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		217A396C1D002D2600E4CCD5 /* Release */ = {
+		D8F838261DB87522006D4358 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,10 +230,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -251,60 +252,65 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		217A396E1D002D2600E4CCD5 /* Debug */ = {
+		D8F838281DB87522006D4358 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QUQSN63RJB;
 				INFOPLIST_FILE = TTImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chaoren.TTImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		217A396F1D002D2600E4CCD5 /* Release */ = {
+		D8F838291DB87522006D4358 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QUQSN63RJB;
 				INFOPLIST_FILE = TTImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chaoren.TTImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		217A39561D002D2600E4CCD5 /* Build configuration list for PBXProject "TTImagePicker" */ = {
+		D8F838101DB87522006D4358 /* Build configuration list for PBXProject "TTImagePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				217A396B1D002D2600E4CCD5 /* Debug */,
-				217A396C1D002D2600E4CCD5 /* Release */,
+				D8F838251DB87522006D4358 /* Debug */,
+				D8F838261DB87522006D4358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		217A396D1D002D2600E4CCD5 /* Build configuration list for PBXNativeTarget "TTImagePicker" */ = {
+		D8F838271DB87522006D4358 /* Build configuration list for PBXNativeTarget "TTImagePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				217A396E1D002D2600E4CCD5 /* Debug */,
-				217A396F1D002D2600E4CCD5 /* Release */,
+				D8F838281DB87522006D4358 /* Debug */,
+				D8F838291DB87522006D4358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 217A39531D002D2600E4CCD5 /* Project object */;
+	rootObject = D8F8380D1DB87522006D4358 /* Project object */;
 }
