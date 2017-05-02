@@ -1,20 +1,20 @@
 //
 //  ViewController.swift
-//  TTImagePicker
+//  TCImagePickerExample
 //
-//  Created by tanchao的iMac on 2016/10/20.
-//  Copyright © 2016年 tanchao. All rights reserved.
+//  Created by 谈超 on 2017/5/3.
+//  Copyright © 2017年 谈超. All rights reserved.
 //
 
 import UIKit
-
+import TCImagePicker
 class ViewController: UIViewController {
     lazy private  var imageView: UIImageView = {
         let object = UIImageView()
         object.backgroundColor = UIColor.red
         return object
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imageView)
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         imageView.addOnClickListener(target: self, action: #selector(ViewController.imageViewClick(imageView:)));
     }
     func imageViewClick(imageView:UIImageView?)  {
-        TTImagePicker.showImagePickerFromViewController(viewController: self, allowsEditing: true, iconView: self.imageView) { [unowned self](icon) in
+        TCImagePicker.showImagePickerFromViewController(viewController: self, allowsEditing: true, iconView: self.imageView) { [unowned self](icon) in
             self.imageView.image = icon!
         }
     }
@@ -34,15 +34,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 extension UIView{
     func addOnClickListener(target: AnyObject, action: Selector) {
         let gr = UITapGestureRecognizer(target: target, action: action)
         gr.numberOfTapsRequired = 1
         isUserInteractionEnabled = true;
-//        userInteractionEnabled = true
+        //        userInteractionEnabled = true
         addGestureRecognizer(gr)
     }
 }
+

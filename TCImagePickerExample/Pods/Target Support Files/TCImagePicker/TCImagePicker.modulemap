@@ -1,0 +1,6 @@
+framework module TCImagePicker {
+  umbrella header "TCImagePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

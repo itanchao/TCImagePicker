@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "TCImagePicker"
-s.version      = "1.0.2"
+s.version      = "2.0.0"
 s.summary      = "一行代码实现拍照，选取图片放大图片等功能"
 s.homepage     = "https://github.com/itanchao/TCImagePicker"
 s.license      = "MIT"

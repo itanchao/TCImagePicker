@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  TTImagePicker
+//  TCImagePickerExample
 //
-//  Created by tanchao的iMac on 2016/10/20.
-//  Copyright © 2016年 tanchao. All rights reserved.
+//  Created by 谈超 on 2017/5/3.
+//  Copyright © 2017年 谈超. All rights reserved.
 //
 
 import UIKit
