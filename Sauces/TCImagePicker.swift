@@ -14,7 +14,7 @@ open class TCImagePicker: NSObject {
     ///  - returns: 回调闭包
     var finishAction:((UIImage?)->Void)?
     
-    static  var picker: TTImagePicker?
+    static  var picker: TCImagePicker?
     ///  弹出ImagePicker
     ///
     ///  - parameter viewController: 当前控制器
@@ -23,12 +23,12 @@ open class TCImagePicker: NSObject {
     ///  - parameter finishAction:   选择完图片回调
     open class func showImagePickerFromViewController(viewController:UIViewController,allowsEditing:Bool,iconView:UIImageView? = nil,finishAction:(_:(UIImage?)->Void)) {
         if picker == nil {
-            picker = TTImagePicker()
+            picker = TCImagePicker()
         }
         picker?.showImagePickerFromViewController(viewC: viewController, allowsEdited: allowsEditing, iconView: iconView, callBackAction: finishAction)
     }
 }
-extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+extension TCImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    open func showImagePickerFromViewController(viewC:UIViewController,allowsEdited:Bool,iconView:UIImageView?,callBackAction:(_:(UIImage?)->Void)){
         finishAction = callBackAction
         let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -42,7 +42,7 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             sheet.addAction(UIAlertAction(title: "拍照", style: .default, handler: { (_) in
                 let imagePickerVc = UIImagePickerController()
-                imagePickerVc.delegate = TTImagePicker.picker
+                imagePickerVc.delegate = TCImagePicker.picker
                 imagePickerVc.sourceType = .camera
                 imagePickerVc.allowsEditing = allowsEdited
                 viewC.present(imagePickerVc, animated: true, completion: nil)
@@ -51,12 +51,12 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
         
         sheet.addAction(UIAlertAction(title: "从相机中选择", style: .default, handler: { (_) in
             let imagePickerVc = UIImagePickerController()
-            imagePickerVc.delegate = TTImagePicker.picker
+            imagePickerVc.delegate = TCImagePicker.picker
             imagePickerVc.allowsEditing = allowsEdited
             viewC.present(imagePickerVc, animated: true, completion: nil)
         }))
         sheet.addAction(UIAlertAction(title: "取消", style:.cancel, handler: { (_) in
-            TTImagePicker.picker = nil
+            TCImagePicker.picker = nil
         }))
         viewC.present(sheet, animated: true, completion: nil)
     }
@@ -69,11 +69,11 @@ extension TTImagePicker:UIImagePickerControllerDelegate,UINavigationControllerDe
             finishAction!(icon)
         }
         picker.dismiss(animated: true, completion: nil)
-        TTImagePicker.picker = nil
+        TCImagePicker.picker = nil
     }
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        TTImagePicker.picker = nil
+        TCImagePicker.picker = nil
         
     }
 }
@@ -122,7 +122,7 @@ private class ImageWatchView: UIView,UIScrollViewDelegate {
         }) { (finished) in
             self.removeFromSuperview()
             self.scrollView.removeFromSuperview()
-            TTImagePicker.picker = nil;
+            TCImagePicker.picker = nil;
         }
     }
     private func initSubviews() {
