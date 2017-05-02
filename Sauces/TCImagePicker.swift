@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TTImagePicker: NSObject {
+open class TCImagePicker: NSObject {
     ///  回调闭包
     ///
     ///  - returns: 回调闭包
