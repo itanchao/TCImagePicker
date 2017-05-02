@@ -1,4 +1,21 @@
 # TTImagePicker
+
+## 使用
+
+~~~python
+platform :ios, ‘8.0’ 
+use_frameworks!
+target "TCImagePickerExample" do
+	pod 'TCImagePicker'
+end
+~~~
+
+```python
+pod install
+```
+
+
+
 ## 图片选择器
 ![](https://raw.githubusercontent.com/itanchao/TTImagePicker/master/TTImagePicker.gif)
 
