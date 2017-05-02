@@ -1,6 +1,6 @@
 //
-//  TTImagePicker.swift
-//  TTImagePicker
+//  TCImagePicker.swift
+//  TCImagePicker
 //
 //  Created by tanchao的iMac on 2016/10/20.
 //  Copyright © 2016年 tanchao. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TTImagePicker: NSObject {
+open class TCImagePicker: NSObject {
     ///  回调闭包
     ///
     ///  - returns: 回调闭包
