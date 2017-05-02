@@ -2,7 +2,7 @@
 //  TCImagePicker.swift
 //  TCImagePicker
 //
-//  Created by tanchao的iMac on 2016/10/20.
+//  Created by tanchao的macbookpro on 2016/10/20.
 //  Copyright © 2016年 tanchao. All rights reserved.
 //
 
