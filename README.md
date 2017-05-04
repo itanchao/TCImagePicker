@@ -24,7 +24,7 @@ pod install
 
 ```swift
     func imageViewClick(imageView:UIImageView?) {
-        TTImagePicker.showImagePickerFromViewController(self, allowsEditing: true, iconView: self.imageView) {[unowned self] (icon) in
+        TCImagePicker.showImagePickerFromViewController(viewController: self, allowsEditing: true, iconView: self.imageView) { [unowned self](icon) in
             self.imageView.image = icon!
         }
     }
